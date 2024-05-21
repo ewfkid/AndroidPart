@@ -10,7 +10,13 @@ import retrofit2.http.Path;
 
 public interface PointApi {
 
+    @GET("point/{user_id}")
+    Call<List<PointDto>> getByUserId(@Path("user_id") String userId);
+
     @GET("point/{id}")
     Call<PointDto> getById(@Path("id") String id);
+
+    @GET
+    Call<PointDto> getByLatitudeAndLongitude(@Path("latitude") double latitude, @Path("longitude") double longitude);
 }
 

@@ -10,11 +10,9 @@ public class FullPointEntity {
     @NonNull
     private final String name;
 
-    @NonNull
-    private final String latitude;
+    private double latitude;
 
-    @NonNull
-    private final String longitude;
+    private double longitude;
 
     @NonNull
     private final String address;
@@ -25,9 +23,13 @@ public class FullPointEntity {
     @NonNull
     private final FullUserEntity user;
 
-    public FullPointEntity(@NonNull String id, @NonNull String name,
-                           @NonNull String latitude, @NonNull String longitude,
-                           @NonNull String address, @NonNull String photoUrl, @NonNull FullUserEntity user) {
+    public FullPointEntity(@NonNull String id,
+                           @NonNull String name,
+                           double latitude,
+                           double longitude,
+                           @NonNull String address,
+                           @NonNull String photoUrl,
+                           @NonNull FullUserEntity user) {
         this.id = id;
         this.name = name;
         this.latitude = latitude;
@@ -45,11 +47,11 @@ public class FullPointEntity {
         return name;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
