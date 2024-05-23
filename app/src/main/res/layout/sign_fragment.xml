@@ -1,61 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:animateLayoutChanges="true">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white">
 
-    <androidx.constraintlayout.helper.widget.Flow
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/dl_registration_head"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <View
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/ellipse_for_login"
+        app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:flow_verticalStyle="packed"
-        app:flow_verticalGap="24dp"
-        app:flow_horizontalAlign="center"
-        app:flow_verticalAlign="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:background="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="@id/dl_registration_right"
+        app:layout_constraintStart_toStartOf="@id/dl_registration_left"
+        app:layout_constraintTop_toTopOf="@+id/dl_registration_head" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/dl_registration_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/dl_registration_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="title, login, password, confirm"/>
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/dl_registration_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tv_registration_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/logo"
+        app:layout_constraintEnd_toEndOf="@id/dl_registration_right"
+        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/tv_registration_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_sign_up"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
+        app:layout_constraintTop_toBottomOf="@+id/dl_registration_top"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <EditText
+        android:id="@+id/et_registration_nick_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_edit_text"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_name"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
+        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
+        app:layout_constraintTop_toBottomOf="@id/tv_registration_description"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <EditText
+        android:id="@+id/et_registration_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_edit_text"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_email"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
+        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
+        app:layout_constraintTop_toBottomOf="@id/et_registration_nick_name"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <EditText
+        android:id="@+id/et_registration_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_edit_text"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_password"
+        android:padding="7dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
+        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
+        app:layout_constraintTop_toBottomOf="@id/et_registration_email"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_registration_sign_up"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
         android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:text="Привет!"
-        android:textColor="@color/black"/>
-
-    <EditText
-        android:id="@+id/login"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/login_hint"
-        android:inputType="textEmailAddress"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"
-        />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/yellow"
-        android:textColor="#1E1E1E"
-        android:text="@string/confirm"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="@id/title"/>
+        android:text="@string/sign_up"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
+        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration_password"
+        app:layout_constraintVertical_bias="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

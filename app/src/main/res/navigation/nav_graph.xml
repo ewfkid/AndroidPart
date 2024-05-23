@@ -2,5 +2,25 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.app.ui.main_fragments.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_fragment"/>
+
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="com.example.app.ui.main_fragments.home.HomeFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment"/>
+
+    <fragment
+        android:id="@+id/scanner_fragment"
+        android:name="com.example.app.ui.main_fragments.scanner.ScannerFragment"
+        android:label="Scanner"
+        tools:layout="@layout/scanner_fragment"/>
+
 </navigation>

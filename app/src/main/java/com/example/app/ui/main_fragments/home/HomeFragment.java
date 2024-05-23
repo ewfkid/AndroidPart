@@ -1,4 +1,4 @@
-package com.example.app.ui.profile;
+package com.example.app.ui.main_fragments.home;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,23 +9,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.app.R;
-import com.example.app.databinding.ProfileFragmentBinding;
+import com.example.app.databinding.HomeFragmentBinding;
 
-public class ProfileFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private ProfileFragmentBinding binding;
+    private HomeFragmentBinding binding;
 
-    private ProfileViewModel viewModel;
+    private HomeViewModel viewModel;
 
-    public ProfileFragment() {
-        super(R.layout.profile_fragment);
+    public HomeFragment() {
+        super(R.layout.home_fragment);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = ProfileFragmentBinding.bind(view);
-        viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+        binding = HomeFragmentBinding.bind(view);
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
     }
 
     @Override

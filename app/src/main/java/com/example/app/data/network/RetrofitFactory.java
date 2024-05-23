@@ -1,4 +1,4 @@
-package com.example.app.network;
+package com.example.app.data.network;
 
 import com.example.app.data.source.PointApi;
 import com.example.app.data.source.UserApi;

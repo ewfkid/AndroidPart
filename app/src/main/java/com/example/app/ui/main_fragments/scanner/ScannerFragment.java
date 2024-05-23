@@ -1,4 +1,4 @@
-package com.example.app.ui.scanner;
+package com.example.app.ui.main_fragments.scanner;
 
 import android.os.Bundle;
 import android.view.View;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App</string>
+    <string name="app_name">No Waste</string>
     <string name="title_home">Главная</string>
     <string name="title_profile">Профиль</string>
     <string name="title_scanner">Сканер</string>
@@ -11,7 +11,17 @@
     <string name="enter_text_hint">Введите текст...</string>
     <string name="email">Email</string>
     <string name="city_name">Москва</string>
-    <string name="login_hint">Введите email...</string>
-    <string name="password_hint">Введите пароль...</string>
-    <string name="confirm">Далее</string>
+    <string name="sign_up">Далее</string>
+    <string name="enter_name">Введите имя</string>
+    <string name="enter_email">Введите email</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="tv_sign_up">Зарегистрироваться</string>
+    <string name="login_hint">example@mail.ru</string>
+    <string name="password_hint">12345678</string>
+    <string name="title_init">Привет!</string>
+    <string name="title_user_exist">Войдём в аккаунт</string>
+    <string name="title_user_new">Создадим аккаунт</string>
+    <string name="button_init">Далее</string>
+    <string name="button_user_exist">Войти</string>
+    <string name="button_user_new">Зарегистрироваться</string>
 </resources>

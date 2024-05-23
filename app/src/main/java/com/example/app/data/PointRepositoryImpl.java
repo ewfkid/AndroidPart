@@ -10,7 +10,7 @@ import com.example.app.domain.entities.FullPointEntity;
 import com.example.app.domain.entities.FullUserEntity;
 import com.example.app.domain.entities.ItemPointEntity;
 import com.example.app.domain.entities.Status;
-import com.example.app.network.RetrofitFactory;
+import com.example.app.data.network.RetrofitFactory;
 
 import java.util.ArrayList;
 import java.util.List;
