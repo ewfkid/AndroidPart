@@ -7,6 +7,7 @@ import com.example.app.domain.entities.Status;
 import java.util.function.Consumer;
 
 public class CreateUserUseCase {
+
     private final SignUserRepository repo;
 
     public CreateUserUseCase(SignUserRepository repo) {
@@ -14,10 +15,10 @@ public class CreateUserUseCase {
     }
 
     public void execute(
-            @NonNull String username,
+            @NonNull String login,
             @NonNull String password,
             Consumer<Status<Void>> callback
     ) {
-        repo.createAccount(username, password, callback);
+        repo.createAccount(login, password, callback);
     }
 }

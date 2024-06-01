@@ -23,27 +23,26 @@ public class SignViewModel extends ViewModel {
     private final MutableLiveData<String> mutableErrorLiveData = new MutableLiveData<>();
     public final LiveData<String> errorLiveData = mutableErrorLiveData;
 
-    private final MutableLiveData<Void> mutableOpenListLiveData = new MutableLiveData<>();
-    public final LiveData<Void> openListLiveData = mutableOpenListLiveData;
-
-    /* UseCases */
     private final IsUserExistUseCase isUserExistUseCase = new IsUserExistUseCase(
             UserRepositoryImpl.getInstance()
     );
-    private final CreateUserUseCase createUserUseCase = new CreateUserUseCase(
-            UserRepositoryImpl.getInstance()
-    );
+
     private final LoginUserUseCase loginUserUseCase = new LoginUserUseCase(
             UserRepositoryImpl.getInstance()
     );
-    /* UseCases */
+
+    private final CreateUserUseCase createUserUseCase = new CreateUserUseCase(
+            UserRepositoryImpl.getInstance()
+    );
 
     @Nullable
     private String login = null;
+
     @Nullable
     private String password = null;
 
     private boolean userCheckCompleted = false;
+
     private boolean isNewAccount = false;
 
     public void changeLogin(@NonNull String login) {
@@ -60,30 +59,34 @@ public class SignViewModel extends ViewModel {
 
     public void confirm() {
         if (userCheckCompleted) {
-            checkAuth();
+
         } else {
             checkUserExist();
         }
-
     }
 
     private void checkAuth() {
+
         final String currentLogin = login;
+
         final String currentPassword = password;
+
         if (currentPassword == null || currentPassword.isEmpty()) {
             mutableErrorLiveData.postValue("Password cannot be null");
             return;
         }
+
         if (currentLogin == null || currentLogin.isEmpty()) {
             mutableErrorLiveData.postValue("Login cannot be null");
             return;
         }
+
         if (isNewAccount) {
             createUserUseCase.execute(currentLogin, currentPassword, status -> {
                 if (status.getStatusCode() == 201 && status.getErrors() == null) {
                     loginUser(currentLogin, currentPassword);
                 } else {
-                    mutableErrorLiveData.postValue("Something wrong");
+                    mutableErrorLiveData.postValue("Something went wrong");
                 }
             });
         } else {
@@ -91,33 +94,40 @@ public class SignViewModel extends ViewModel {
         }
     }
 
-    private void loginUser(@NonNull final String currentLogin,@NonNull final String currentPassword) {
-        loginUserUseCase.execute(currentLogin, currentPassword, status -> {
+    private void loginUser(@NonNull final String login, @NonNull final String password) {
+        loginUserUseCase.execute(login, password, status -> {
             if (status.getStatusCode() == 200 && status.getErrors() == null) {
-                mutableOpenListLiveData.postValue(null);
+                //TODO: set Mutable Live Data here
             } else {
-                mutableErrorLiveData.postValue("Something wrong");
+                mutableErrorLiveData.postValue("Something went wrong");
             }
         });
     }
 
     private void checkUserExist() {
+
         final String currentLogin = login;
+
         if (currentLogin == null || currentLogin.isEmpty()) {
             mutableErrorLiveData.postValue("Login cannot be null");
             return;
         }
         isUserExistUseCase.execute(currentLogin, status -> {
+
             if (status.getValue() == null || status.getErrors() != null) {
-                mutableErrorLiveData.postValue("Something wrong. Try again later.");
+                mutableErrorLiveData.postValue("Something went wrong. Try again later");
                 return;
             }
+
             userCheckCompleted = true;
             isNewAccount = !status.getValue();
-            if(isNewAccount) {
+
+            if (isNewAccount) {
                 mutableStateLiveData.postValue(
                         new State(R.string.title_user_new, R.string.button_user_new, true)
                 );
+
+
             } else {
                 mutableStateLiveData.postValue(
                         new State(R.string.title_user_exist, R.string.button_user_exist, true)

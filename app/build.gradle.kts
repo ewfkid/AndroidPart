@@ -49,10 +49,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.picasso)
-    annotationProcessor (libs.compiler)
-    implementation (libs.firebase.ui.storage)
-    implementation(libs.firebase.bom)
-    implementation("com.google.firebase:firebase-analytics")
     implementation (libs.play.services.maps)
     implementation (libs.androidx.appcompat)
     implementation (libs.material)
@@ -62,7 +58,5 @@ dependencies {
     implementation (libs.androidx.camera.camera2)
     implementation (libs.androidx.camera.lifecycle)
     implementation (libs.androidx.camera.video)
-    implementation (libs.core)
-
-
+    implementation (libs.core.v341)
 }

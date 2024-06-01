@@ -17,17 +17,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_user_avatar"
+            android:id="@+id/user_avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/user_avatar"
             app:layout_constraintEnd_toEndOf="@id/top_bar"
-            app:layout_constraintTop_toTopOf="@id/top_bar" />
+            app:layout_constraintTop_toTopOf="@id/top_bar"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -40,25 +40,25 @@
             tools:text="@tools:sample/full_names" />
 
         <TextView
-            android:id="@+id/tv_email"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:text="@string/email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#757171"
-            app:layout_constraintStart_toStartOf="@id/tv_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name" />
 
         <TextView
-            android:id="@+id/tv_user_email"
+            android:id="@+id/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#1E1E1E"
-            app:layout_constraintStart_toStartOf="@id/tv_email"
-            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            app:layout_constraintStart_toStartOf="@id/email"
+            app:layout_constraintTop_toBottomOf="@id/email"
             tools:text="@tools:sample/cities" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

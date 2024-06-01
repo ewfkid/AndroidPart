@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "758543685377",
+    "project_id": "mapsmasterclass-423019",
+    "storage_bucket": "mapsmasterclass-423019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758543685377:android:6e52f898eabcb39b216d00",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPSJzmpYVBdrXQyjo6HMzV2DruyKrvF80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

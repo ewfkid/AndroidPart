@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_white">
+    android:animateLayoutChanges="true"
+    android:background="@color/background_white"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/dl_registration_head"
@@ -14,7 +16,7 @@
         app:layout_constraintGuide_percent="0.05" />
 
     <View
-        android:id="@+id/logo"
+        android:id="@+id/eclipse"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/ellipse_for_login"
@@ -22,15 +24,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="74dp"
-        android:layout_height="74dp"
-        android:background="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="@id/dl_registration_right"
-        app:layout_constraintStart_toStartOf="@id/dl_registration_left"
-        app:layout_constraintTop_toTopOf="@+id/dl_registration_head" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -55,55 +48,26 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/tv_registration_app_name"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/logo"
-        app:layout_constraintEnd_toEndOf="@id/dl_registration_right"
-        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
-
-    <TextView
-        android:id="@+id/tv_registration_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_sign_up"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
         app:layout_constraintTop_toBottomOf="@+id/dl_registration_top"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintVertical_bias="0.07"
+        tools:text="Зарегистрироваться" />
 
     <EditText
-        android:id="@+id/et_registration_nick_name"
+        android:id="@+id/email"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_edit_text"
-        android:gravity="center_vertical"
-        android:hint="@string/enter_name"
-        android:padding="7dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/hint_color"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
-        app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
-        app:layout_constraintTop_toBottomOf="@id/tv_registration_description"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <EditText
-        android:id="@+id/et_registration_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="@drawable/rectangle_edit_text"
         android:gravity="center_vertical"
         android:hint="@string/enter_email"
+        android:inputType="textEmailAddress"
         android:padding="7dp"
         android:textColor="@color/black"
         android:textColorHint="@color/hint_color"
@@ -111,16 +75,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
         app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
-        app:layout_constraintTop_toBottomOf="@id/et_registration_nick_name"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_bias="0.1" />
 
     <EditText
-        android:id="@+id/et_registration_password"
+        android:id="@+id/password"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="@drawable/rectangle_edit_text"
         android:gravity="center_vertical"
         android:hint="@string/enter_password"
+        android:inputType="textPassword"
         android:padding="7dp"
         android:textColor="@color/black"
         android:textColorHint="@color/hint_color"
@@ -128,11 +93,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
         app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
-        app:layout_constraintTop_toBottomOf="@id/et_registration_email"
+        app:layout_constraintTop_toBottomOf="@id/email"
         app:layout_constraintVertical_bias="0.05" />
 
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_registration_sign_up"
+        android:id="@+id/confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
@@ -143,7 +109,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dl_registration_right"
         app:layout_constraintStart_toStartOf="@+id/dl_registration_left"
-        app:layout_constraintTop_toBottomOf="@+id/et_registration_password"
+        app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

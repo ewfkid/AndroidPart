@@ -6,24 +6,25 @@ import com.google.gson.annotations.SerializedName;
 
 public class AccountDto {
     @NonNull
-    @SerializedName("username")
-    public String name;
-    @NonNull
     @SerializedName("password")
     public String password;
 
-    public AccountDto(@NonNull String name, @NonNull String password) {
-        this.name = name;
-        this.password = password;
-    }
-
     @NonNull
-    public String getName() {
-        return name;
+    @SerializedName("email")
+    public String email;
+
+    public AccountDto(@NonNull String password, @NonNull String email) {
+        this.password = password;
+        this.email = email;
     }
 
     @NonNull
     public String getPassword() {
         return password;
+    }
+
+    @NonNull
+    public String getEmail() {
+        return email;
     }
 }

@@ -15,13 +15,14 @@
     <string name="enter_name">Введите имя</string>
     <string name="enter_email">Введите email</string>
     <string name="enter_password">Введите пароль</string>
-    <string name="tv_sign_up">Зарегистрироваться</string>
-    <string name="login_hint">example@mail.ru</string>
-    <string name="password_hint">12345678</string>
     <string name="title_init">Привет!</string>
-    <string name="title_user_exist">Войдём в аккаунт</string>
-    <string name="title_user_new">Создадим аккаунт</string>
+    <string name="title_user_exist">Войти</string>
+    <string name="title_user_new">Зарегистрироваться</string>
     <string name="button_init">Далее</string>
     <string name="button_user_exist">Войти</string>
     <string name="button_user_new">Зарегистрироваться</string>
+    <string name="save">Сохранить</string>
+    <string name="searchbar_hint">Поиск...</string>
+    <string name="ok">OK</string>
+    <string name="error_message">Этот продукт не найден в базе данных</string>
 </resources>

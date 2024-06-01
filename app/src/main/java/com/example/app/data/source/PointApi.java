@@ -15,8 +15,5 @@ public interface PointApi {
 
     @GET("point/{id}")
     Call<PointDto> getById(@Path("id") String id);
-
-    @GET
-    Call<PointDto> getByLatitudeAndLongitude(@Path("latitude") double latitude, @Path("longitude") double longitude);
 }
 

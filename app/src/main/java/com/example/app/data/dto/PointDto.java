@@ -1,9 +1,8 @@
 package com.example.app.data.dto;
 
-import com.example.app.domain.entities.FullUserEntity;
+import androidx.annotation.Nullable;
+import com.example.app.domain.entities.UserEntity;
 import com.google.gson.annotations.SerializedName;
-
-import javax.annotation.Nullable;
 
 public class PointDto {
     @Nullable
@@ -25,11 +24,6 @@ public class PointDto {
     public String address;
 
     @Nullable
-    @SerializedName("photoUrl")
-    public String photoUrl;
-
-    @Nullable
     @SerializedName("user")
-    public FullUserEntity user;
-
+    public UserEntity user;
 }

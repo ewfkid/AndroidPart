@@ -1,16 +1,17 @@
 package com.example.app.data;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.app.data.dto.AccountDto;
+import com.example.app.data.network.RetrofitFactory;
 import com.example.app.data.source.CredentialsDataSource;
 import com.example.app.data.source.UserApi;
 import com.example.app.data.utils.CallToConsumer;
-import com.example.app.domain.UserRepository;
-import com.example.app.domain.entities.FullUserEntity;
 import com.example.app.domain.entities.Status;
-import com.example.app.data.network.RetrofitFactory;
+import com.example.app.domain.entities.UserEntity;
 import com.example.app.domain.sign.SignUserRepository;
+import com.example.app.domain.user.UserRepository;
 
 import java.util.function.Consumer;
 
@@ -33,25 +34,32 @@ public class UserRepositoryImpl implements UserRepository, SignUserRepository {
     }
 
     @Override
-    public void getUser(@NonNull String id, @NonNull Consumer<Status<FullUserEntity>> callback) {
+    public void getUser(@NonNull String id, @NonNull Consumer<Status<UserEntity>> callback) {
         userApi.getById(id).enqueue(new CallToConsumer<>(
                 callback,
                 user -> {
                     final String resultId = user.id;
                     final String email = user.email;
-                    final String name = user.name;
-                    if (resultId != null && email != null && name != null) {
-                        return new FullUserEntity(
+                    if (resultId != null && email != null) {
+                        return new UserEntity(
                                 resultId,
                                 email,
-                                name
+                                user.name,
+                                user.photoUrl
                         );
                     } else {
                         return null;
                     }
                 }
         ));
+
     }
+
+    @Override
+    public void updateUser(@NonNull UserEntity user, @NonNull Consumer<Status<Void>> callback) {
+
+    }
+
     @Override
     public void isExistUser(@NonNull String login, Consumer<Status<Void>> callback) {
         userApi.isExist(login).enqueue(new CallToConsumer<>(

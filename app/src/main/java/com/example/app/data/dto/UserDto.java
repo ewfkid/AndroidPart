@@ -1,8 +1,8 @@
 package com.example.app.data.dto;
 
-import com.google.gson.annotations.SerializedName;
+import androidx.annotation.Nullable;
 
-import javax.annotation.Nullable;
+import com.google.gson.annotations.SerializedName;
 
 public class UserDto {
 
@@ -17,4 +17,8 @@ public class UserDto {
     @Nullable
     @SerializedName("name")
     public String name;
+
+    @Nullable
+    @SerializedName("photoUrl")
+    public String photoUrl;
 }

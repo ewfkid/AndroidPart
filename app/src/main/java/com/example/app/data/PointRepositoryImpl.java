@@ -5,12 +5,12 @@ import androidx.annotation.NonNull;
 import com.example.app.data.dto.PointDto;
 import com.example.app.data.source.PointApi;
 import com.example.app.data.utils.CallToConsumer;
-import com.example.app.domain.PointRepository;
-import com.example.app.domain.entities.FullPointEntity;
-import com.example.app.domain.entities.FullUserEntity;
-import com.example.app.domain.entities.ItemPointEntity;
+import com.example.app.domain.point.PointRepository;
+import com.example.app.domain.entities.PointEntity;
+import com.example.app.domain.entities.UserEntity;
 import com.example.app.domain.entities.Status;
 import com.example.app.data.network.RetrofitFactory;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class PointRepositoryImpl implements PointRepository {
     }
 
     @Override
-    public void getPoint(@NonNull String id, @NonNull Consumer<Status<FullPointEntity>> callback) {
+    public void getPoint(@NonNull String id, @NonNull Consumer<Status<PointEntity>> callback) {
         pointApi.getById(id).enqueue(new CallToConsumer<>(
                 callback,
                 point -> {
@@ -42,17 +42,14 @@ public class PointRepositoryImpl implements PointRepository {
                     final double latitude = point.latitude;
                     final double longitude = point.longitude;
                     final String address = point.address;
-                    final String photoUrl = point.photoUrl;
-                    final FullUserEntity user = point.user;
+                    final UserEntity user = point.user;
 
-                    if (resultId != null && name != null && address != null && photoUrl != null && user != null) {
-                        return new FullPointEntity(
+                    if (resultId != null && name != null && address != null && user != null) {
+                        return new PointEntity(
                                 resultId,
                                 name,
-                                latitude,
-                                longitude,
+                                new LatLng(latitude, longitude),
                                 address,
-                                photoUrl,
                                 user
                         );
                     } else {
@@ -63,16 +60,26 @@ public class PointRepositoryImpl implements PointRepository {
     }
 
     @Override
-    public void getAllPointsByUserId(@NonNull String userId, @NonNull Consumer<Status<List<ItemPointEntity>>> callback) {
+    public void getAllPointsByUserId(@NonNull String userId, @NonNull Consumer<Status<List<PointEntity>>> callback) {
         pointApi.getByUserId(userId).enqueue(new CallToConsumer<>(
                 callback,
                 pointsDto -> {
-                    ArrayList<ItemPointEntity> result = new ArrayList<>(pointsDto.size());
+                    ArrayList<PointEntity> result = new ArrayList<>(pointsDto.size());
                     for (PointDto point : pointsDto) {
                         final String id = point.id;
                         final String name = point.name;
-                        if (id != null && name != null) {
-                            result.add(new ItemPointEntity(id, name));
+                        final double latitude = point.latitude;
+                        final double longitude = point.longitude;
+                        final String address = point.address;
+                        final UserEntity user = point.user;
+                        if (id != null && name != null && address != null && user != null) {
+                            result.add(new PointEntity(
+                                    id,
+                                    name,
+                                    new LatLng(latitude, longitude),
+                                    address,
+                                    user
+                            ));
                         }
                     }
                     return result;

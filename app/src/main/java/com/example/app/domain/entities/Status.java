@@ -1,6 +1,7 @@
 package com.example.app.domain.entities;
 
-import javax.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 public class Status<T> {
     private final int statusCode;

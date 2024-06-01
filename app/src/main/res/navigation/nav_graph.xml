@@ -3,24 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/home_fragment">
+    app:startDestination="@id/sign_fragment">
+
+    <fragment
+        android:id="@+id/sign_fragment"
+        android:name="com.example.app.ui.sign.SignFragment"
+        android:label="Sign"
+        tools:layout="@layout/sign_fragment">
+        <action
+            android:id="@+id/action_sign_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/home_fragment"
         android:name="com.example.app.ui.main_fragments.home.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/home_fragment"/>
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_home_fragment_to_profile_fragment"
+            app:destination="@id/profile_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_scanner_fragment"
+            app:destination="@id/scanner_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profile_fragment"
         android:name="com.example.app.ui.main_fragments.home.HomeFragment"
         android:label="Profile"
-        tools:layout="@layout/profile_fragment"/>
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profile_fragment_to_scanner_fragment"
+            app:destination="@id/scanner_fragment" />
+        <action
+            android:id="@+id/action_profile_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/scanner_fragment"
         android:name="com.example.app.ui.main_fragments.scanner.ScannerFragment"
         android:label="Scanner"
-        tools:layout="@layout/scanner_fragment"/>
+        tools:layout="@layout/scanner_fragment">
+        <action
+            android:id="@+id/action_scanner_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_scanner_fragment_to_profile_fragment"
+            app:destination="@id/profile_fragment" />
+    </fragment>
 
 </navigation>

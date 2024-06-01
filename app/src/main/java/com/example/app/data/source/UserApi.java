@@ -7,15 +7,22 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface UserApi {
-
-    @GET("user/{id}")
+    @GET("/user/{id}")
     Call<UserDto> getById(@Path("id") String id);
-    Call<Void> isExist(@Path("username") String login);
-    @POST("edu/v1/user/register")
+
+    @GET("/user/{email}")
+    Call<Void> isExist(@Path("email") String login);
+
+    @POST("/user/register")
     Call<Void> register(@Body AccountDto dto);
-    @GET("edu/v1/user/login")
+
+    @GET("/user/login")
     Call<Void> login();
+
+    @PUT("/user/{id}")
+    Call<Void> update(@Body UserDto dto);
 }

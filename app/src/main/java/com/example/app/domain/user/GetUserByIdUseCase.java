@@ -1,8 +1,8 @@
-package com.example.app.domain;
+package com.example.app.domain.user;
 
 import androidx.annotation.NonNull;
 
-import com.example.app.domain.entities.FullUserEntity;
+import com.example.app.domain.entities.UserEntity;
 import com.example.app.domain.entities.Status;
 
 import java.util.function.Consumer;
@@ -14,7 +14,7 @@ public class GetUserByIdUseCase {
         this.repo = repo;
     }
 
-    public void execute(@NonNull String id, @NonNull Consumer<Status<FullUserEntity>> callback) {
+    public void execute(@NonNull String id, @NonNull Consumer<Status<UserEntity>> callback) {
         repo.getUser(id, callback);
     }
 }
