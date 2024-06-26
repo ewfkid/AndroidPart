@@ -17,7 +17,7 @@ public class CreateUserUseCase {
     public void execute(
             @NonNull String login,
             @NonNull String password,
-            Consumer<Status<Void>> callback
+            @NonNull Consumer<Status<Void>> callback
     ) {
         repo.createAccount(login, password, callback);
     }

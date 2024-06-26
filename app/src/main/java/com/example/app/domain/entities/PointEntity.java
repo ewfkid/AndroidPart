@@ -2,9 +2,6 @@ package com.example.app.domain.entities;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.maps.model.LatLng;
-
-
 
 public class PointEntity {
 
@@ -14,8 +11,8 @@ public class PointEntity {
     @NonNull
     private final String name;
 
-    @NonNull
-    private final LatLng latLng;
+    private final double latitude;
+    private final double longitude;
 
     @NonNull
     private final String address;
@@ -26,12 +23,14 @@ public class PointEntity {
 
     public PointEntity(@NonNull String id,
                        @NonNull String name,
-                       @NonNull LatLng latLng,
+                       double latitude,
+                       double longitude,
                        @NonNull String address,
                        @NonNull UserEntity user) {
         this.id = id;
         this.name = name;
-        this.latLng = latLng;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.address = address;
         this.user = user;
     }
@@ -40,13 +39,18 @@ public class PointEntity {
         return id;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
     public String getName() {
         return name;
     }
 
-    public LatLng getLatLng() {
-        return latLng;
-    }
 
     public String getAddress() {
         return address;

@@ -24,5 +24,5 @@ public interface UserApi {
     Call<Void> login();
 
     @PUT("/user/{id}")
-    Call<Void> update(@Body UserDto dto);
+    Call<UserDto> update(@Path("id") String id, @Body UserDto dto);
 }

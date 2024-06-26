@@ -6,6 +6,33 @@
     app:startDestination="@id/sign_fragment">
 
     <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.app.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/home_fragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="com.example.app.ui.home.HomeFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profile_fragment_to_edit_profile_fragment"
+            app:destination="@id/edit_profile_fragment" />
+        <action
+            android:id="@+id/action_profile_fragment_to_sign_fragment"
+            app:destination="@id/sign_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scanner_fragment"
+        android:name="com.example.app.ui.scanner.ScannerFragment"
+        android:label="Scanner"
+        tools:layout="@layout/scanner_fragment">
+    </fragment>
+
+    <fragment
         android:id="@+id/sign_fragment"
         android:name="com.example.app.ui.sign.SignFragment"
         android:label="Sign"
@@ -16,41 +43,17 @@
     </fragment>
 
     <fragment
-        android:id="@+id/home_fragment"
-        android:name="com.example.app.ui.main_fragments.home.HomeFragment"
-        android:label="Home"
-        tools:layout="@layout/home_fragment">
-        <action
-            android:id="@+id/action_home_fragment_to_profile_fragment"
-            app:destination="@id/profile_fragment" />
-        <action
-            android:id="@+id/action_home_fragment_to_scanner_fragment"
-            app:destination="@id/scanner_fragment" />
-    </fragment>
+        android:id="@+id/edit_profile_fragment"
+        android:name="com.example.app.ui.edit_profile.EditProfileFragment"
+        android:label="EditProfile"
+        tools:layout="@layout/edit_profile_fragment">
+        <!--<argument
+            android:name="id"
+            app:nullable="false"
+            app:argType="string"/> -->
 
-    <fragment
-        android:id="@+id/profile_fragment"
-        android:name="com.example.app.ui.main_fragments.home.HomeFragment"
-        android:label="Profile"
-        tools:layout="@layout/profile_fragment">
         <action
-            android:id="@+id/action_profile_fragment_to_scanner_fragment"
-            app:destination="@id/scanner_fragment" />
-        <action
-            android:id="@+id/action_profile_fragment_to_home_fragment"
-            app:destination="@id/home_fragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/scanner_fragment"
-        android:name="com.example.app.ui.main_fragments.scanner.ScannerFragment"
-        android:label="Scanner"
-        tools:layout="@layout/scanner_fragment">
-        <action
-            android:id="@+id/action_scanner_fragment_to_home_fragment"
-            app:destination="@id/home_fragment" />
-        <action
-            android:id="@+id/action_scanner_fragment_to_profile_fragment"
+            android:id="@+id/action_edit_profile_fragment_to_profile_fragment"
             app:destination="@id/profile_fragment" />
     </fragment>
 

@@ -26,4 +26,12 @@ public class PointDto {
     @Nullable
     @SerializedName("user")
     public UserEntity user;
+
+    public PointDto(@Nullable String name, double latitude, double longitude, @Nullable String address, @Nullable UserEntity user) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.address = address;
+        this.user = user;
+    }
 }

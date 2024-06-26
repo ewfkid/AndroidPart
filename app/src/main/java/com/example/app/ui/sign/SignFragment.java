@@ -2,13 +2,16 @@ package com.example.app.ui.sign;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.app.R;
 import com.example.app.databinding.SignFragmentBinding;
@@ -16,12 +19,20 @@ import com.example.app.ui.utils.OnChangeText;
 import com.example.app.ui.utils.Utils;
 
 public class SignFragment extends Fragment {
+
     private SignFragmentBinding binding;
 
     private SignViewModel viewModel;
 
-    public SignFragment() {
-        super(R.layout.sign_fragment);
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.sign_fragment, container, false);
     }
 
     @Override
@@ -49,15 +60,22 @@ public class SignFragment extends Fragment {
     }
 
     private void subscribe(SignViewModel viewModel) {
+
         viewModel.errorLiveData.observe(getViewLifecycleOwner(), error -> {
             Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
         });
+
         viewModel.stateLiveData.observe(getViewLifecycleOwner(), state -> {
             binding.confirm.setText(state.getButton());
             binding.title.setText(state.getTitle());
             binding.password.setVisibility(Utils.visibleOrGone(state.isPasswordEnabled()));
         });
-        //TODO: make a transition between fragments
+
+        viewModel.homeLiveData.observe(getViewLifecycleOwner(), unused -> {
+            View view = getView();
+            if (view == null) return;
+            Navigation.findNavController(view).navigate(R.id.action_sign_fragment_to_home_fragment);
+        });
     }
 
     @Override
@@ -65,4 +83,6 @@ public class SignFragment extends Fragment {
         binding = null;
         super.onDestroyView();
     }
+
+
 }

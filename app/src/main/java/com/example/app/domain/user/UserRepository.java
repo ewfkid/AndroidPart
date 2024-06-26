@@ -11,5 +11,5 @@ import java.util.function.Consumer;
 public interface UserRepository {
     void getUser(@NonNull String id, @NonNull Consumer<Status<UserEntity>> callback);
 
-    void updateUser(@NonNull UserEntity user, @NonNull Consumer<Status<Void>> callback);
+    void updateUser(@NonNull String id, @NonNull UserEntity user, @NonNull Consumer<Status<UserEntity>> callback);
 }

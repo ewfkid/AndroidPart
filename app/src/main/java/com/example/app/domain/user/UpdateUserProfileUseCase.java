@@ -8,14 +8,14 @@ import com.example.app.domain.entities.UserEntity;
 
 import java.util.function.Consumer;
 
-public class UpdateUserAccountUseCase {
+public class UpdateUserProfileUseCase {
     private final UserRepository repo;
 
-    public UpdateUserAccountUseCase(UserRepository repo) {
+    public UpdateUserProfileUseCase(UserRepository repo) {
         this.repo = repo;
     }
 
-    public void execute (@NonNull UserEntity user, @NonNull Consumer<Status<Void>> callback){
-        repo.updateUser(user, callback);
+    public void execute (@NonNull String id, @NonNull UserEntity user, @NonNull Consumer<Status<UserEntity>> callback){
+        repo.updateUser(id, user, callback);
     }
 }

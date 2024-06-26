@@ -21,4 +21,17 @@ public class UserDto {
     @Nullable
     @SerializedName("photoUrl")
     public String photoUrl;
+
+    public UserDto(@Nullable String id, @Nullable String email, @Nullable String name, @Nullable String photoUrl) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.photoUrl = photoUrl;
+    }
+
+    public UserDto(@Nullable String email, @Nullable String name, @Nullable String photoUrl) {
+        this.email = email;
+        this.name = name;
+        this.photoUrl = photoUrl;
+    }
 }

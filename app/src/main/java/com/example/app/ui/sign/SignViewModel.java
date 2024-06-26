@@ -14,7 +14,10 @@ import com.example.app.domain.sign.IsUserExistUseCase;
 import com.example.app.domain.sign.LoginUserUseCase;
 
 public class SignViewModel extends ViewModel {
+    /* LiveData */
+
     private final State INIT_STATE = new State(R.string.title_init, R.string.button_init, false);
+
     private final MutableLiveData<State> mutableStateLiveData = new MutableLiveData<>(
             INIT_STATE
     );
@@ -22,6 +25,13 @@ public class SignViewModel extends ViewModel {
 
     private final MutableLiveData<String> mutableErrorLiveData = new MutableLiveData<>();
     public final LiveData<String> errorLiveData = mutableErrorLiveData;
+
+    private final MutableLiveData<Void> mutableHomeLiveData = new MutableLiveData<>();
+    public final LiveData<Void> homeLiveData = mutableHomeLiveData;
+
+    /* LiveData */
+
+    /* UseCases */
 
     private final IsUserExistUseCase isUserExistUseCase = new IsUserExistUseCase(
             UserRepositoryImpl.getInstance()
@@ -34,6 +44,8 @@ public class SignViewModel extends ViewModel {
     private final CreateUserUseCase createUserUseCase = new CreateUserUseCase(
             UserRepositoryImpl.getInstance()
     );
+
+    /* UseCases */
 
     @Nullable
     private String login = null;
@@ -97,7 +109,7 @@ public class SignViewModel extends ViewModel {
     private void loginUser(@NonNull final String login, @NonNull final String password) {
         loginUserUseCase.execute(login, password, status -> {
             if (status.getStatusCode() == 200 && status.getErrors() == null) {
-                //TODO: set Mutable Live Data here
+                mutableHomeLiveData.postValue(null);
             } else {
                 mutableErrorLiveData.postValue("Something went wrong");
             }

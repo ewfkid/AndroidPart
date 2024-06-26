@@ -11,64 +11,12 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/top_bar"
-        app:layout_constraintTop_toTopOf="@id/top_bar" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/dialog_fragment_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_city_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="@string/city_name"
-            android:textColor="#3D3C3C"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="@id/top_bar"
-            app:layout_constraintStart_toStartOf="@id/top_bar"
-            app:layout_constraintTop_toTopOf="@id/top_bar" />
 
-        <ImageView
-            android:id="@+id/iv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/ic_location"
-            app:layout_constraintBottom_toTopOf="@id/search_bar"
-            app:layout_constraintStart_toEndOf="@id/tv_city_name" />
-
-        <SearchView
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/search_bar_bg"
-            android:focusable="false"
-            app:closeIcon="@drawable/ic_search"
-            app:iconifiedByDefault="false"
-            app:layout_constraintBottom_toBottomOf="@id/top_bar"
-            app:layout_constraintStart_toEndOf="@id/tv_city_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_city_name"
-            app:queryHint="Search..."
-            app:searchHintIcon="@null"
-            app:searchIcon="@drawable/ic_search" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

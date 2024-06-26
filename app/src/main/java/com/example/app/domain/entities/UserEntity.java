@@ -41,11 +41,4 @@ public class UserEntity {
         return photoUrl;
     }
 
-    public void setName(@Nullable String name) {
-        this.name = name;
-    }
-
-    public void setPhotoUrl(@Nullable String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
 }

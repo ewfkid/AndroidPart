@@ -1,9 +1,7 @@
-package com.example.app.ui.main_fragments.scanner.adapter;
+package com.example.app.ui.scanner.adapter;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -47,7 +45,7 @@ public class QRAnalyzer implements ImageAnalysis.Analyzer {
     public static void launchDialogError() {
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.incorrect_barcode_fragment);
+        dialog.setContentView(R.layout.incorrect_barcode_dialog);
         TextView button = dialog.findViewById(R.id.confirm);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

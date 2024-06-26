@@ -1,9 +1,9 @@
 package com.example.app.data;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.example.app.data.dto.AccountDto;
+import com.example.app.data.dto.UserDto;
 import com.example.app.data.network.RetrofitFactory;
 import com.example.app.data.source.CredentialsDataSource;
 import com.example.app.data.source.UserApi;
@@ -56,8 +56,24 @@ public class UserRepositoryImpl implements UserRepository, SignUserRepository {
     }
 
     @Override
-    public void updateUser(@NonNull UserEntity user, @NonNull Consumer<Status<Void>> callback) {
-
+    public void updateUser(@NonNull String id, @NonNull UserEntity updatedUser, @NonNull Consumer<Status<UserEntity>> callback) {
+        userApi.update(id, new UserDto(updatedUser.getEmail(), updatedUser.getName(), updatedUser.getPhotoUrl())).enqueue(new CallToConsumer<>(
+                callback,
+                user -> {
+                    final String resultId = user.id;
+                    final String email = user.email;
+                    if (resultId != null && email != null) {
+                        return new UserEntity(
+                                resultId,
+                                email,
+                                user.name,
+                                user.photoUrl
+                        );
+                    } else {
+                        return null;
+                    }
+                }
+        ));
     }
 
     @Override

@@ -1,23 +1,23 @@
 package com.example.app.data.network;
 
-import com.example.app.data.source.ProductApi;
+import com.example.app.data.source.PlaceApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ProductController {
+public class PlaceController {
 
     private static final String BASE_URL = "https://base.url.com/";
 
-    private static ProductController INSTANCE;
+    private static PlaceController INSTANCE;
 
-    private ProductController(){
+    private PlaceController(){
 
     }
 
-    public static synchronized ProductController getInstance() {
+    public static synchronized PlaceController getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new ProductController();
+            INSTANCE = new PlaceController();
         }
         return INSTANCE;
     }
@@ -27,7 +27,7 @@ public class ProductController {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    public ProductApi getProductApi() {
-        return retrofit.create(ProductApi.class);
+    public PlaceApi getPlaceApi() {
+        return retrofit.create(PlaceApi.class);
     }
 }

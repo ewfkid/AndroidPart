@@ -1,13 +1,11 @@
-package com.example.app.ui.main_fragments.scanner;
+package com.example.app.ui.scanner;
 
 
 import android.Manifest;
-import android.app.Dialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.app.R;
 import com.example.app.databinding.ScannerFragmentBinding;
-import com.example.app.ui.main_fragments.scanner.adapter.QRAnalyzer;
+import com.example.app.ui.scanner.adapter.QRAnalyzer;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
@@ -31,6 +29,7 @@ public class ScannerFragment extends Fragment {
     private ScannerFragmentBinding binding;
 
     private ScannerViewModel viewModel;
+
 
     private static final int PERMISSION_REQUEST_CODE = 10;
     private QRAnalyzer qrAnalyzer;
@@ -106,7 +105,7 @@ public class ScannerFragment extends Fragment {
 
 
 
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CODE) {
@@ -114,5 +113,7 @@ public class ScannerFragment extends Fragment {
                 startCamera();
             }
         }
-    }
+    }*/
+
+
 }
