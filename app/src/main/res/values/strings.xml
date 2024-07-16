@@ -26,7 +26,9 @@
     <string name="ok">OK</string>
     <string name="error_message">Этот продукт не найден в базе данных</string>
     <string name="edit_profile">Изменить профиль</string>
-    <string name="log_out">Выйти</string>
+    <string name="logout">Выйти</string>
     <string name="search_title">Поиск...</string>
     <string name="add_photo_button">Добавить фото</string>
+    <string name="edit">Изменить</string>
+    <string name="name">Имя</string>
 </resources>

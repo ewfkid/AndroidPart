@@ -25,6 +25,7 @@ public class UserEntity {
         this.photoUrl = photoUrl;
     }
 
+
     public String getId() {
         return id;
     }

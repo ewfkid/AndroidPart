@@ -59,4 +59,12 @@ dependencies {
     implementation (libs.androidx.camera.lifecycle)
     implementation (libs.androidx.camera.video)
     implementation (libs.core.v341)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    annotationProcessor(libs.compiler)
+    implementation(libs.firebase.ui.storage)
 }

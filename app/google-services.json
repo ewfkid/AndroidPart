@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "758543685377",
-    "project_id": "mapsmasterclass-423019",
-    "storage_bucket": "mapsmasterclass-423019.appspot.com"
+    "project_number": "1032945035062",
+    "project_id": "no-waste-app-b895f",
+    "storage_bucket": "no-waste-app-b895f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:758543685377:android:6e52f898eabcb39b216d00",
+        "mobilesdk_app_id": "1:1032945035062:android:147b9160ee7648d8107597",
         "android_client_info": {
           "package_name": "com.example.app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCPSJzmpYVBdrXQyjo6HMzV2DruyKrvF80"
+          "current_key": "AIzaSyDUL0Ffdb7zh2u7NfcwUMRxG00mmkq1JjE"
         }
       ],
       "services": {
